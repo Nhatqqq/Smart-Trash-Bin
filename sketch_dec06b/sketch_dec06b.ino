@@ -10,8 +10,8 @@ const int echo = D0;     // The port of HC-SR04
 
 
 char auth[] = "QpfWcHrq421b48bsVc1r2dnURdvOuPfE";//Enter Auth token
-char ssid[] = "iPhone";                          //Enter WIFI name
-char pass[] = "asd12345";                        //Enter WIFI password
+char ssid[] = ")::(";                          //Enter WIFI name
+char pass[] = "1234567890";                        //Enter WIFI password
 
 float GetDistance(){
     unsigned long duration;    // Measure time
@@ -73,5 +73,9 @@ void runServo() {
 }
 
 BLYNK_WRITE(V0) {
+   myServo.write(param.asInt());  // Control the Servo Motor through Blynk
+}
+
+BLYNK_WRITE(V1) {
    myServo.write(param.asInt());  // Control the Servo Motor through Blynk
 }
